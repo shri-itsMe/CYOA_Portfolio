@@ -26,10 +26,10 @@ tw-passage {
     right: 0px; 
     bottom: 0;
     overflow-y: auto;
-    padding: 2em 5%;
+    padding: 1em 2%;
     max-width: none !important;
     margin: 0 !important;
-    line-height: 1.6;
+    line-height: 1.2;
     font-size: 1.1em;
     box-sizing: border-box;
 }
@@ -41,7 +41,7 @@ h1, h2 {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: #F2E9D2;
-    font-size: 4em; 
+    font-size: 3em; 
     margin-bottom: 0.1em;
 }
 
@@ -50,7 +50,7 @@ h1, h2 {
 tw-link {
 	background-color: #F2E9D2;
 	color: #1D3B8B !important; 
-	padding: 12px 25px;
+	padding: 10px 25px;
 	border-radius: 50px; 
 	text-decoration: none;
 	display: inline-block;
@@ -101,12 +101,15 @@ tw-story::after {
 State.variables.hasResearch = false;
 State.variables.hasAesthetic = false;
 State.variables.hasEditing = false;
+State.variables.finishedQ1 = false;
+State.variables.finishedQ2 = false;
 
 window.resetVars = function() {
     State.variables.hasResearch = false;
     State.variables.hasAesthetic = false;
     State.variables.hasEditing = false;
 };
+
 window.setup = window.setup || {};
 
 window.typewriter = function(selector, speed) {
@@ -147,71 +150,85 @@ $(document).on(':passagerender', function() {
 &lt;h1&gt; SIDEQUESTS SIMULATOR&lt;/h1&gt;
 
 By Shri Nallan Chakravarthi
-&lt;h2&gt;[[CLICK HERE TO START-&gt;Home]]&lt;/h2&gt;</tw-passagedata><tw-passagedata pid="2" name="Home" tags="" position="625,425" size="100,100">&lt;h2&gt;QUESTS&lt;/h2&gt;
-(box: &quot;X&quot;, 1)[Click on each button to explore different experiences and lessons.]
-
+&lt;h2&gt;[[CLICK HERE TO START-&gt;Home]]&lt;/h2&gt;</tw-passagedata><tw-passagedata pid="2" name="Home" tags="" position="625,425" size="100,100">&lt;h2&gt;OPTIONS&lt;/h2&gt;
+(box: &quot;X&quot;, 1)[Click on each button to explore different sidequests.]
 [[Q1 - Make a Podcast Famous ]]
 [[Q2 - Personal Projects]]
-[[About]]
 
-
-[[Back|TITLE PAGE]]</tw-passagedata><tw-passagedata pid="3" name="Q1 - Make a Podcast Famous " tags="" position="450,425" size="100,100">&lt;h2&gt;October 2024&lt;/h2&gt;
+[[About]]     [[Back|TITLE PAGE]]</tw-passagedata><tw-passagedata pid="3" name="Q1 - Make a Podcast Famous " tags="" position="450,425" size="100,100">&lt;div class=&quot;quest-container&quot;&gt;
+    &lt;div class=&quot;quest-text&quot;&gt;
+&lt;h2&gt;October 2024&lt;/h2&gt;
 You are a Podcast Growth Intern at Shadow Clock Podcast, a documentary style podcast with episodes telling the amazing stories of real people that would otherwise be lost in the //shadow// of time. 
+&#39;&#39;Your boss assigns you a question: &#39;&#39;How do we upgrade our digital platforms and brand to gain followers with our small budget and resources?&#39;&#39;&#39;&#39;
 
-Your boss assigns you a question: &#39;&#39;How do we upgrade our digital platforms and brand to gain followers with our small budget and resources?&#39;&#39;
-
-&#39;&#39;//Upon hearing this question, you...:
-//&#39;&#39;
+//You have no idea how to start other than simply starting somewhere. &#39;&#39;Upon hearing this question, you...&#39;&#39;//
+        
 [[Start Market Researching-&gt;Q1Research]]           
 [[Design a whole new Brand Aesthetic-&gt;Q1Aesthetic]]
-[[Gain Experience in Editing Tools-&gt;Q1Editing]]</tw-passagedata><tw-passagedata pid="4" name="Q1Research" tags="" position="300,425" size="100,100">(set: $hasResearch to true)
-
-&lt;div class=&quot;quest-container&quot;&gt;
+[[Gain Experience in Editing Tools-&gt;Q1Editing]]
+    &lt;/div&gt;
+    &lt;div class=&quot;quest-images&quot;&gt;
+        &lt;img src=&quot;assets/designaesthetic_img/title_img.png&quot; style=&quot;width:100%; border-radius:4px; border: 3px solid #758059;&quot;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="Q1Research" tags="" position="300,400" size="100,100">&lt;div class=&quot;quest-container&quot;&gt;
   &lt;div class=&quot;quest-text&quot;&gt;
-    # MARKET RESEARCH
-    You conduct *multiple* deep dives into listener demographics and platform algorithms.
-    (if: $hasResearch and $hasAesthetic and $hasEditing)[
+    # MARKET 
+    #RESEARCH
+    You conduct *multiple* deep dives into listener 
+    demographics and platform algorithms.
+    (set: $hasResearch to true) (if: $hasResearch and $hasAesthetic and $hasEditing)[ 
       ### ALL TASKS COMPLETE!
-      [[Finalize the Quest-&gt;Q1End]]
-    ](else:)[However, you still have work to do:
-      (if: not $hasAesthetic)[ [[Design a whole new Aesthetic-&gt;Q1Aesthetic]] 
+      [[Finalize the Quest-&gt;Q1End]]]
+      (else:)[However, you still have work to do: 
+      (if: not $hasAesthetic)[ [[Design a whole new Aesthetic-&gt;Q1Aesthetic]]] (if: not $hasEditing)
+      [
+      [[Gain Experience in Editing Tools-&gt;Q1Editing]]]
       ]
-      (if: not $hasEditing)[ 
-        [[Gain Experience in Editing Tools-&gt;Q1Editing]] 
-      ]
-    ]
-
-    &lt;br&gt;&lt;br&gt;
     [[BACK TO QUEST MENU-&gt;Home]]
   &lt;/div&gt;
 
   &lt;div class=&quot;quest-images&quot;&gt;
     &lt;div class=&quot;image-placeholder&quot;&gt;
-       [SCREENSOT: AUDIENCE GRAPH]
+       &lt;img src=&quot;assets/research_img/Screenshot 2026-04-21 at 11.18.56 AM.png&quot; style=&quot;width:100%; border-radius:4px;border3px solid #758059;&quot;&gt;
     &lt;/div&gt;
     &lt;div class=&quot;image-placeholder&quot;&gt;
-       [SCREENSHOT: ANALYTICS PDF]
+      
+              &lt;img src=&quot;assets/research_img/Screenshot 2026-04-21 at 11.22.31 AM.png&quot; style=&quot;width:100%; border-radius:4px;border3px solid #758059;&quot;&gt;
+    &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Q1Aesthetic" tags="" position="300,625" size="100,100">(set: $hasAesthetic to true)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Q1Aesthetic" tags="" position="300,625" size="100,100">&lt;div class=&quot;quest-container&quot;&gt;
+  &lt;div class=&quot;quest-text&quot;&gt;
+  &lt;h1&gt;BRAND 
+AESTHETIC&lt;/h1&gt;
+Transforming the visual identity to match the 
+prestige of an internationally awarded podcast.
 
-&lt;h1&gt;BRAND AESTHETIC&lt;/h1&gt;
-Transforming the visual identity to match the prestige of an internationally awarded podcast.
-
-(if: $hasResearch and $hasAesthetic and $hasEditing)[ALL TASKS COMPLETE!
+(set: $hasAesthetic to true)(if: $hasResearch and $hasAesthetic and $hasEditing)[ALL TASKS COMPLETE!
 [[Finalize the Quest-&gt;Q1End]]
 ](else-if: not $hasResearch or not $hasEditing)[Remaining Tasks:
 (if: not $hasResearch)[ [[Start Market Research-&gt;Q1Research]] ]
 (if: not $hasEditing)[ [[Gain Experience in Editing Tools-&gt;Q1Editing]] ]
 ]
 
-[[Back to Quest Menu-&gt;Home]]</tw-passagedata><tw-passagedata pid="6" name="Q1Editing" tags="" position="300,250" size="100,100">(set: $hasEditing to true)
+[[Back to Quest Menu-&gt;Home]]
+  &lt;/div&gt;
 
-&lt;h2&gt;EDITING EXPERIENCE&lt;/h2&gt;
-[Screenshots of Adobe After Effects, Premiere Pro, Descript, Canva]
-
+  &lt;div class=&quot;quest-images&quot;&gt;
+    &lt;div class=&quot;image-placeholder&quot;&gt;
+       &lt;img src=&quot;assets/designaesthetic_img/Screenshot 2026-04-21 at 1.42.45 PM.png&quot; style=&quot;width:100%; border-radius:4px;border3px solid #758059;&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;image-placeholder&quot;&gt;
+      
+       &lt;img src=&quot;assets/designaesthetic_img/Screenshot 2026-03-20 at 3.38.47 PM.png&quot; style=&quot;width:100%; border-radius:4px;border3px solid #758059;&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Q1Editing" tags="" position="300,250" size="100,100">&lt;div class=&quot;quest-container&quot;&gt;
+  &lt;div class=&quot;quest-text&quot;&gt;
+&lt;h2&gt;EDITING 
+EXPERIENCE&lt;/h2&gt;
+(set: $hasEditing to true)
 Mastering the stack to produce high-quality documentary content.
-
 (if: $hasResearch and $hasAesthetic and $hasEditing)[
 Finish the Quest! 
 [[Finalize the Quest-&gt;Q1End]]
@@ -220,7 +237,26 @@ Finish the Quest!
 (if: not $hasResearch)[ [[Start Market Research-&gt;Q1Research]] ]
 (if: not $hasAesthetic)[ [[Design a whole new Aesthetic-&gt;Q1Aesthetic]] ]
 ]
-[[Back to Quest Menu-&gt;Home]]</tw-passagedata><tw-passagedata pid="7" name="Q1End" tags="" position="100,450" size="100,100">QUEST COMPLETED
+[[Back to Quest Menu-&gt;Home]]
+  &lt;/div&gt;
+  
+  &lt;div class=&quot;quest-images&quot;&gt;
+    &lt;div class=&quot;image-placeholder&quot;&gt;
+       &lt;img src=&quot;assets/editing_img/descript_1.webp&quot; style=&quot;width:100%; border-radius:4px; border: 3px solid #758059;&quot;&gt;
+       
+    &lt;/div&gt;
+    &lt;div class=&quot;image-placeholder&quot;&gt;
+      &lt;img src=&quot;assets/editing_img/Screenshot 2026-04-21 at 1.04.29 PM.png&quot; style=&quot;width:100%; border-radius:4px;border3px solid #758059;&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Q1End" tags="" position="100,450" size="100,100">(set: $finishedQ1 to true)
+(set: $hasResearch to false)
+(set: $hasAesthetic to false)
+(set: $hasEditing to false)
+&lt;div class=&quot;quest-container&quot;&gt;
+  &lt;div class=&quot;quest-text&quot;&gt;
+  &lt;h1&gt;QUEST COMPLETED&lt;/h1&gt;
+
 Where are we now?
 
 Rigorous schedule to finish pulling and designing.
@@ -229,7 +265,19 @@ Secured backing and grants.
 
 Internationally Awarded status maintained and grown.
 
-[[RETURN TO MAP-&gt;Home]]</tw-passagedata><tw-passagedata pid="8" name="Q2 - Personal Projects" tags="" position="625,550" size="100,100"></tw-passagedata><tw-passagedata pid="9" name="About" tags="" position="850,550" size="100,100">&lt;h1&gt;ABOUT&lt;/h1&gt;
+[[RETURN TO MAP-&gt;Home]]
+ &lt;/div&gt;
+ 
+ &lt;div class=&quot;quest-images&quot;&gt;
+    &lt;div class=&quot;image-placeholder&quot;&gt;
+       &lt;img src=&quot;assets/research_img/Screenshot 2026-04-21 at 11.22.03 AM.png&quot; style=&quot;width:100%; border-radius:4px; border: 3px solid #758059;&quot;&gt;
+       
+    &lt;/div&gt;
+    &lt;div class=&quot;image-placeholder&quot;&gt;
+      &lt;img src=&quot;assets/designaesthetic_img/title_img.png&quot; style=&quot;width:100%; border-radius:4px;border3px solid #758059;&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Q2 - Personal Projects" tags="" position="625,550" size="100,100"></tw-passagedata><tw-passagedata pid="9" name="About" tags="" position="850,550" size="100,100">&lt;h1&gt;ABOUT&lt;/h1&gt;
 No growth is linear, so why should this showcase be? 
 
 As a child, I loved the &quot;Choose Your Own Adventure&quot; Books. They were the only thing I would read for some time. I would attempt to reach every ending, exploring every cavernous chapter, planning paths through pages, almost like a quest.
